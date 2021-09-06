@@ -16,8 +16,7 @@ namespace Zahlenkonverter
 				string Number;
 				if (InBase == 10)
 				{
-					
-					
+					return FromBase10(InNumber, OutBase);
 				}
 				else if (OutBase == 10)
 				{
@@ -40,7 +39,29 @@ namespace Zahlenkonverter
 				}
 				return OutNumber;
 			}
-			private string InvertString(string ToBeInverted)
+			private string FromBase10(string InNumber, int OutBase)
+			{
+				//3930 to HEX (F5A)
+				List<string> thing = new List<string>();
+				int Remainder;
+				Int64.TryParse(InNumber, out long InNumberInt);
+				while (InNumberInt != 0)
+				{
+					if (InNumberInt < OutBase)
+					{
+						NumbersIntToString.TryGetValue((int)InNumberInt, out string Cha);
+						thing.Add(Cha);
+						break;
+					}
+					Remainder = (int)InNumberInt - (int)Math.Floor((double)InNumberInt / OutBase) * OutBase;
+					NumbersIntToString.TryGetValue(Remainder, out string Chari);
+					thing.Add(Chari);
+					InNumberInt = (int)Math.Floor((double)InNumberInt / OutBase);
+				}
+				string Out = string.Join("", thing);
+				return InvertString(Out);
+			}
+			private string InvertString(string ToBeInverted) //Never thought i had to use an Inversion programm in a "real" situation
 			{
 				char[] charArray = ToBeInverted.ToCharArray();
 				Array.Reverse(charArray);
