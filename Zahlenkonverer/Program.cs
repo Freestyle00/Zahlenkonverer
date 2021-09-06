@@ -7,7 +7,7 @@ namespace Zahlenkonverter
 		static void Main(string[] args)
 		{
 			var Rechne = new Rechner();
-			Rechne.Rechne();
+			Rechne.Eingaben();
 		}
 	}
 }
