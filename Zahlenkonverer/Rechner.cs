@@ -25,7 +25,7 @@ namespace Zahlenkonverter
 					Converter converter = new Converter();
 					try
 					{
-						converter.ConverterFunc(NumberToConvert, (int)BaseInt, (int)BaseToConvertTo);
+						Console.WriteLine(converter.ConverterFunc(NumberToConvert, (int)BaseInt, (int)BaseToConvertTo));
 					}
 					catch (OverflowException)
 					{
