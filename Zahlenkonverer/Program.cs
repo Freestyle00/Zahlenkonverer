@@ -6,6 +6,7 @@ namespace Zahlenkonverter
 	{
 		static void Main(string[] args)
 		{
+			var tests = new MyTestClass();
 			var Rechne = new Rechner();
 			Rechne.Eingaben();
 		}
